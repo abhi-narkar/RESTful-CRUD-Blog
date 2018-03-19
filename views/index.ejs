@@ -1,0 +1,33 @@
+<% include ./partials/header %>
+<div class="ui main text container">
+    <div class="ui huge header">RESTful MARVEL AVENGERS!!!</div>
+    <div class="ui top attached segment">
+        <div class="ui divided items">
+            <% blogsVar.forEach(function(blogsVar){ %>
+    <div class="item">
+        <div class="image">
+             <img src="<%= blogsVar.image %>">
+        </div>
+         <div class="content">
+             <a class="header"href="/blogs/<%= blogsVar._id %>"><%= blogsVar.title %></a>
+             <div class="meta">
+                  <span><%= blogsVar.created.toDateString() %></span>
+             </div>
+            <div class="description">
+                 <!--substring limits the no of characters shown on index page for one blog-->
+        <p><%= blogsVar.body.substring(0, 100) %> ........</p>
+            </div>
+        <div class="extra">
+            <a class="ui floated basic violet button" href="/blogs/<%= blogsVar._id %>">
+             Read More
+             <i class="right chevron icon"></i>
+             </a>
+        </div>
+           </div>
+         </div>
+        <% }) %>
+      </div>
+  </div>
+</div>
+
+<% include ./partials/footer %>

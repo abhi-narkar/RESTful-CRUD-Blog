@@ -1,0 +1,24 @@
+<% include ./partials/header %>
+<div class="ui main text container segment">
+    <div class="ui huge header"><%= blogVar.title %></div>
+    <div class="ui top attached">
+        <div class="item">
+             <img class="ui centered rounded image" src="<%= blogVar.image %>">
+        </div>
+        
+        <div class ="content">
+            <span><%= blogVar.created.toDateString() %></span>
+        </div>
+        
+        <div class="description">
+             <!--keyword '-' will evaluate the paragraph as code-->
+            <p><%- blogVar.body %> ........</p> 
+        </div>
+        <a class="ui orange basic button" href="/blogs/<%= blogVar._id %>/edit">EDIT</a>
+         <a class="ui violet basic button" href="/blogs">BACK</a>
+        <form id="delete" action="/blogs/<%= blogVar._id %>?_method=DELETE" method="POST">
+            <button class="ui red basic button">DELETE</button>
+        </form>
+    </div>
+</div>
+<% include ./partials/footer %>
